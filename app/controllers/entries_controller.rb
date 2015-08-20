@@ -1,8 +1,8 @@
 class EntriesController < ApplicationController
-  respond_to :html, :json
-
   def index
-    respond_with Entry.all
+    respond_to do |format|
+      format.json { render json: Entry.all }
+      format.any { render text: 'hello' }
+    end
   end
-
 end
